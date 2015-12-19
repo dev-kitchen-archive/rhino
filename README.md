@@ -17,6 +17,7 @@ Allows to lookup the media for an uuid.
 {
   "uuid": "6ba9252f-ebe6-4730-b792-7af63aa2a523",
   "type": "movie",
+  "id": 1,
   "url": "/movies/1"
 }
 ```
@@ -29,7 +30,7 @@ Allows to fetch the details of a movie.
 
 ```json
 {
-  "id": "1",
+  "id": 1,
   "title": "Swag with Beans",
   "asset_url": "/assets/movies/1.mp4"
 }
@@ -43,7 +44,7 @@ Allows to fetch the details of an image.
 
 ```json
 {
-  "id": "1",
+  "id": 1,
   "title": "Someone looking at something",
   "asset_url": "/assets/images/1.png"
 }
