@@ -25,6 +25,8 @@ Allows to lookup the media for an uuid.
 
 Allows to fetch the details of a movie.
 
+#### Response
+
 ```json
 {
   "id": "1",
@@ -36,6 +38,8 @@ Allows to fetch the details of a movie.
 ### GET /image/:id
 
 Allows to fetch the details of an image.
+
+#### Response
 
 ```json
 {
