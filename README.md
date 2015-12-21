@@ -32,7 +32,8 @@ Allows to fetch the details of a movie.
 {
   "id": 1,
   "title": "Swag with Beans",
-  "asset_url": "/assets/movies/1.mp4"
+  "asset_url": "/assets/movies/1.mp4",
+  "preview_url": "/assets/movies/1.jpg"
 }
 ```
 
