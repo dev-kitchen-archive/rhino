@@ -18,7 +18,10 @@ Allows to lookup the media for an uuid.
   "uuid": "6ba9252f-ebe6-4730-b792-7af63aa2a523",
   "type": "movie",
   "id": 1,
-  "url": "/movies/1"
+  "uri": "/movies/1"
+  "title": "Swag with Beans",
+  "teaser": "A short text to tease the viewer",
+  "thumbnail_uri": "/assets/movies/1-thumbnail.jpg"
 }
 ```
 
@@ -31,9 +34,10 @@ Allows to fetch the details of a movie.
 ```json
 {
   "id": 1,
-  "title": "Swag with Beans",
   "asset_url": "/assets/movies/1.mp4",
-  "preview_url": "/assets/movies/1.jpg"
+  "description": "A long text to describe the movie",
+  "updated_at": "2016-01-19T20:19:42+01:00",
+  "created_at": "2016-01-05T10:32:22+01:00"
 }
 ```
 
@@ -46,7 +50,9 @@ Allows to fetch the details of an image.
 ```json
 {
   "id": 1,
-  "title": "Someone looking at something",
-  "asset_url": "/assets/images/1.png"
+  "asset_url": "/assets/images/1.jpg",
+  "description": "A long text to describe the image",
+  "updated_at": "2016-01-19T20:19:42+01:00",
+  "created_at": "2016-01-05T10:32:22+01:00"
 }
 ```
