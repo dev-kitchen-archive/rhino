@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Media type:</strong>
+  <%= @medium.media_type %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @medium.title %>
+</p>
+
+<p>
+  <strong>Teaser:</strong>
+  <%= @medium.teaser %>
+</p>
+
+<%= link_to 'Edit', edit_medium_path(@medium) %> |
+<%= link_to 'Back', media_path %>

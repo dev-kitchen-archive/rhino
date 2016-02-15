@@ -1,0 +1,10 @@
+<%= simple_form_for(@medium) do |f| %>
+  <%= f.input :media_type %><br>
+  <%= f.input :title %><br>
+  <%= f.input :teaser %><br>
+  <%= f.input :thumbnail, as: :file %>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
