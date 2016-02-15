@@ -18,7 +18,7 @@ Allows to lookup the media for an uuid.
   "uuid": "6ba9252f-ebe6-4730-b792-7af63aa2a523",
   "type": "movie",
   "id": 1,
-  "uri": "/movies/1"
+  "uri": "/movies/1",
   "title": "Swag with Beans",
   "teaser": "A short text to tease the viewer",
   "thumbnail_uri": "/assets/movies/1-thumbnail.jpg"
