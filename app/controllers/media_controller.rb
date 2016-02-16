@@ -8,11 +8,15 @@ class MediaController < ApplicationController
 
   # GET /media/1
   def show
+    respond_to do |format|
+      format.html {}
+      format.json { render json: @medium }
+    end
   end
 
   # GET /media/new
   def new
-    @medium = Medium.new
+    @medium = Movie.new
   end
 
   # GET /media/1/edit
@@ -21,10 +25,10 @@ class MediaController < ApplicationController
 
   # POST /media
   def create
-    @medium = Medium.new(medium_params)
+    @medium = Movie.new(medium_params)
 
     if @medium.save
-      redirect_to @medium, notice: 'Medium was successfully created.'
+      redirect_to media_url, notice: 'Medium was successfully created.'
     else
       render :new
     end
@@ -53,6 +57,6 @@ class MediaController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def medium_params
-      params.require(:medium).permit(:media_type, :title, :teaser)
+      params.require(:movie).permit(:media_type, :title, :teaser, :thumbnail, :file)
     end
 end

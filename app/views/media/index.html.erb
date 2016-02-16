@@ -15,12 +15,12 @@
   <tbody>
     <% @media.each do |medium| %>
       <tr>
-        <td><%= medium.media_type %></td>
+        <td><%= medium.type %></td>
         <td><%= medium.title %></td>
         <td><%= medium.teaser %></td>
-        <td><%= link_to 'Show', medium %></td>
+        <td><%= link_to 'Show', medium_path(medium) %></td>
         <td><%= link_to 'Edit', edit_medium_path(medium) %></td>
-        <td><%= link_to 'Destroy', medium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', medium_path(medium), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

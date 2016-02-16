@@ -1,8 +1,9 @@
-<%= simple_form_for(@medium) do |f| %>
-  <%= f.input :media_type %><br>
+<%= simple_form_for(@medium, url: media_path) do |f| %>
+  <%= f.input :type, collection: [Movie.model_name.human] %><br>
   <%= f.input :title %><br>
   <%= f.input :teaser %><br>
   <%= f.input :thumbnail, as: :file %>
+  <%= f.input :file, as: :file %>
 
   <div class="actions">
     <%= f.button :submit %>

@@ -18,11 +18,11 @@ ActiveRecord::Schema.define(version: 20160215222642) do
   enable_extension "uuid-ossp"
 
   create_table "media", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.string   "media_type",    null: false
+    t.string   "type",          null: false
     t.string   "title",         null: false
     t.string   "teaser",        null: false
     t.string   "thumbnail_uid", null: false
-    t.json     "data",          null: false
+    t.json     "sti_store",     null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
