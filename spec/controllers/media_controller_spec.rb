@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe MediaController, type: :controller do
+  before do
+    sign_in
+  end
+
   let(:valid_attributes) { FactoryGirl.attributes_for(:movie) }
   let(:invalid_attributes) { { title: nil } }
 

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'active_model_serializers', '~> 0.10.0.rc4'
 gem 'bcrypt'
+gem 'clearance'
 gem 'coffee-script'
 gem 'dragonfly'
 gem 'jquery-rails'

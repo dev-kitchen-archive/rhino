@@ -1,5 +1,6 @@
 class MediaController < ApplicationController
   before_action :set_medium, only: [:show, :edit, :update, :destroy]
+  skip_before_action :require_login, only: :show
 
   # GET /media
   def index
