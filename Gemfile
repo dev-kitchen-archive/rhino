@@ -13,10 +13,10 @@ gem 'uglifier'
 
 group :development, :test do
   gem 'byebug'
+  gem 'factory_girl_rails'
 end
 
 group :development do
-  gem 'factory_girl_rails'
   gem 'foreman'
   gem 'puma'
   gem 'rspec'

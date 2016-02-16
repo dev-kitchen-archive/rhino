@@ -37,7 +37,7 @@ class MediaController < ApplicationController
   # PATCH/PUT /media/1
   def update
     if @medium.update(medium_params)
-      redirect_to @medium, notice: 'Medium was successfully updated.'
+      redirect_to media_url, notice: 'Medium was successfully updated.'
     else
       render :edit
     end
@@ -57,6 +57,6 @@ class MediaController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def medium_params
-      params.require(:movie).permit(:media_type, :title, :teaser, :thumbnail, :file)
+      params.require(:movie).permit(:type, :title, :teaser, :thumbnail, :file)
     end
 end
