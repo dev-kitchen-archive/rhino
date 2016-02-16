@@ -9,50 +9,19 @@ This is the backend for the interactive book app.
 
 ### GET /media/:uuid
 
-Allows to lookup the media for an uuid.
+Allows to lookup the medium for an uuid.
 
 #### Response
 
 ```json
 {
-  "uuid": "6ba9252f-ebe6-4730-b792-7af63aa2a523",
-  "type": "movie",
-  "id": 1,
-  "uri": "/movies/1",
-  "title": "Swag with Beans",
-  "teaser": "A short text to tease the viewer",
-  "thumbnail_uri": "/assets/movies/1-thumbnail.jpg"
-}
-```
-
-### GET /movies/:id
-
-Allows to fetch the details of a movie.
-
-#### Response
-
-```json
-{
-  "id": 1,
-  "asset_url": "/assets/movies/1.mp4",
-  "description": "A long text to describe the movie",
-  "updated_at": "2016-01-19T20:19:42+01:00",
-  "created_at": "2016-01-05T10:32:22+01:00"
-}
-```
-
-### GET /image/:id
-
-Allows to fetch the details of an image.
-
-#### Response
-
-```json
-{
-  "id": 1,
-  "asset_url": "/assets/images/1.jpg",
-  "description": "A long text to describe the image",
-  "updated_at": "2016-01-19T20:19:42+01:00",
-  "created_at": "2016-01-05T10:32:22+01:00"
+  id: "150f626e-9e1c-4a5d-9722-f0fb1f6ebf6c",
+  type: "movie",
+  title: "Star Wars 7",
+  teaser: "The force awakens",
+  thumbnail_url: "/asset/W1siZiIsIjIwMTYvMDIvMTYvMmxldmxmYm96c19TY3JlZW5zaG90XzIwMTZfMDJfMTZfMTMuMzcuMjgucG5nIl1d?sha=aa7182acf9168d76",
+  data: {
+    file_url: "/asset/W1siZiIsIjIwMTYvMDIvMTYvd2NpeGl1ZzV6X0lDRl9Xb3JzaGlwX1RhZ191bmRfTmFjaHQubXA0Il1d?sha=3852198f753ca9e8"
+  }
 }
 ```
