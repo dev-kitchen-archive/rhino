@@ -1,9 +1,16 @@
 <%= simple_form_for(@medium, url: media_path) do |f| %>
-  <%= f.input :type, collection: [Movie.model_name.human] %><br>
-  <%= f.input :title %><br>
-  <%= f.input :teaser %><br>
-  <%= f.input :thumbnail, as: :file %>
-  <%= f.input :file, as: :file %>
+  <fieldset>
+    <legend><%= t('.general') %></legend>
+    <%= f.input :type, collection: [Movie.model_name.human] %>
+    <%= f.input :title %>
+    <%= f.input :teaser %>
+    <%= f.input :thumbnail, as: :file %>
+  </fieldset>
+
+  <fieldset>
+    <legend><%= t('.movie') %></legend>
+    <%= f.input :file, as: :file %>
+  </fieldset>
 
   <div class="actions">
     <%= f.button :submit %>

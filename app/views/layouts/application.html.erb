@@ -6,9 +6,27 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= body_class %>">
 
-<%= yield %>
+  <% if signed_in? %>
+    <nav>
+      <div class="wrapper">
+        <%= link_to Medium.model_name.human, media_path %>
+        <%= link_to User.model_name.human, users_path %>
+      </div>
+    </nav>
+  <% end %>
+  <section class="wrapper">
+    <% if flash.any? %>
+      <% flash.each do |status, text| %>
+        <div class="flash-<%= status %>">
+          <span><%= text %></span>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%= yield %>
+  </section>
 
 </body>
 </html>

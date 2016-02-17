@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
 gem 'active_model_serializers', '~> 0.10.0.rc4'
+gem 'bourbon'
 gem 'bcrypt'
 gem 'clearance'
 gem 'coffee-script'
 gem 'dragonfly'
+gem 'flutie'
 gem 'jquery-rails'
 gem 'pg'
 gem 'rails'
@@ -19,6 +21,7 @@ end
 
 group :development do
   gem 'foreman'
+  gem 'i18n-tasks'
   gem 'puma'
   gem 'rspec'
   gem 'rspec-rails'
