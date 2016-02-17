@@ -1,0 +1,11 @@
+.media-show {
+  .details {
+    @include display(flex);
+
+    > * {
+      @include flex(1);
+
+      padding: 0 .3em;
+    }
+  }
+}

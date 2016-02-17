@@ -1,19 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Media type:</strong>
-  <%= @medium.type %>
-</p>
-
-<p>
-  <strong>Title:</strong>
+<h1>
   <%= @medium.title %>
-</p>
+  <small><%= @medium.type %></small>
+</h1>
 
-<p>
-  <strong>Teaser:</strong>
-  <%= @medium.teaser %>
-</p>
+<div class="details">
+  <div>
+    <%= image_tag @medium.thumbnail.url %>
+  </div>
 
-<%= link_to 'Edit', edit_medium_path(@medium) %> |
-<%= link_to 'Back', media_path %>
+  <div>
+    <p><%= @medium.teaser %></p>
+    <%= link_to t('shared.download'), @medium.file.url %>
+  </div>
+</div>
+
+
+<%= link_to t('shared.edit'), edit_medium_path(@medium) %> |
+<%= link_to t('shared.back'), media_path %>
