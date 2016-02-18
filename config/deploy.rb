@@ -6,7 +6,7 @@ set :repo_url, 'git@github.com:dev-kitchen/rhino.git'
 set :deploy_to, '/srv/www/rhino.dev.kitchen'
 
 set :linked_files, -> { %W{} }
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/uploads public/assets public/system}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/assets public/system}
 
 set :keep_releases, 5
 
