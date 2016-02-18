@@ -13,6 +13,7 @@ gem 'rails'
 gem 'rollbar'
 gem 'sass-rails'
 gem 'simple_form'
+gem 'therubyracer'
 gem 'uglifier'
 
 group :development, :test do
