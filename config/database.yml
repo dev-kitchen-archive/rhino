@@ -9,3 +9,12 @@ development:
 test:
   <<: *default
   database: dk-rhino_test
+
+production:
+  reconnect: true
+  adapter: postgresql
+  database: rhino
+  encoding: utf-8
+  pool: 16
+  username: rhino
+  password: <%= ENV['DATABASE_PASSWORD'] %>

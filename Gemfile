@@ -10,6 +10,7 @@ gem 'flutie'
 gem 'jquery-rails'
 gem 'pg'
 gem 'rails'
+gem 'rollbar'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
@@ -20,6 +21,11 @@ group :development, :test do
 end
 
 group :development do
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-rails-console'
+  gem 'capistrano-rails-tail-log'
+  gem 'capistrano-rbenv'
   gem 'foreman'
   gem 'i18n-tasks'
   gem 'puma'
