@@ -4,6 +4,7 @@ FactoryGirl.define do
     teaser 'Cool Things are happening, check it out'
 
     factory :movie, class: Movie do
+      type 'Movie'
       thumbnail Rails.root.join('spec', 'fixtures', 'movie.png')
       file Rails.root.join('spec', 'fixtures', 'movie.mp4')
     end

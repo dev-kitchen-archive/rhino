@@ -3,17 +3,17 @@
   <small><%= @medium.type %></small>
 </h1>
 
+<p><%= @medium.teaser %></p>
+
 <div class="details">
   <div>
     <%= image_tag @medium.thumbnail.url %>
   </div>
 
   <div>
-    <p><%= @medium.teaser %></p>
-    <%= link_to t('shared.download'), @medium.file.url %>
+    <%= render @medium.class.to_s.underscore %>
   </div>
 </div>
-
 
 <%= link_to t('shared.edit'), edit_medium_path(@medium) %> |
 <%= link_to t('shared.back'), media_path %>

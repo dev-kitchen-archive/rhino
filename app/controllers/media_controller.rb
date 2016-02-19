@@ -17,7 +17,7 @@ class MediaController < ApplicationController
 
   # GET /media/new
   def new
-    @medium = Movie.new
+    @medium = medium_class.new
   end
 
   # GET /media/1/edit
@@ -26,7 +26,7 @@ class MediaController < ApplicationController
 
   # POST /media
   def create
-    @medium = Movie.new(medium_params)
+    @medium = medium_class.new(medium_params)
 
     if @medium.save
       redirect_to media_url, notice: I18n.t('shared.created', resource: Medium.model_name.human)
@@ -51,13 +51,36 @@ class MediaController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_medium
-      @medium = Medium.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def medium_params
-      params.require(:movie).permit(:type, :title, :teaser, :thumbnail, :file)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_medium
+    @medium = Medium.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def medium_params
+    params.require(:medium).permit(
+      :type,
+      :title,
+      :teaser,
+      :thumbnail,
+      :file,
+      :movie1,
+      :movie2,
+      :description1,
+      :description2,
+    )
+  end
+
+  def medium_class
+    if valid_type_given?
+      @medium = params[:type].constantize
+    else
+      @medium = Medium
     end
+  end
+
+  def valid_type_given?
+    %w(Movie TwoMoviesAndText).include? params[:type]
+  end
 end
