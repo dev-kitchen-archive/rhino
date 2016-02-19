@@ -1,18 +1,18 @@
-<%= simple_form_for(@medium, url: (@medium.persisted? ? medium_path(@medium) : media_path)) do |f| %>
-  <fieldset>
-    <legend><%= t('.general') %></legend>
-    <%= f.input :type, collection: [Movie], include_blank: false %>
-    <%= f.input :title %>
-    <%= f.input :teaser %>
-    <%= f.input :thumbnail, as: :file %>
-  </fieldset>
+<%= simple_form_for(@medium, as: :medium, url: (@medium.persisted? ? medium_path(@medium) : media_path)) do |f| %>
+  <%= f.input :type, collection: [Movie, TwoMoviesAndText] %>
 
-  <fieldset>
-    <legend><%= t('.movie') %></legend>
-    <%= f.input :file, as: :file %>
-  </fieldset>
+  <% unless @medium.class == Medium %>
+    <fieldset>
+      <legend><%= t('.general') %></legend>
+      <%= f.input :title %>
+      <%= f.input :teaser %>
+      <%= f.input :thumbnail, as: :file %>
+    </fieldset>
 
-  <div class="actions">
-    <%= f.button :submit %>
-  </div>
+    <%= render "form.#{@medium.class.to_s.underscore}", f: f %>
+
+    <div class="actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
 <% end %>

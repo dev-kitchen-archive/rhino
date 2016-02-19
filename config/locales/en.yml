@@ -10,8 +10,8 @@ en:
         other: Users
   media:
     form:
+      details: Details
       general: General
-      movie: Movie
   shared:
     back: Back
     created: "%{resource} was successfully created."

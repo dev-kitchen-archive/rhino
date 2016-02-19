@@ -42,30 +42,30 @@ RSpec.describe MediaController, type: :controller do
     context 'with valid params' do
       it 'creates a new Medium' do
         expect {
-          post :create, movie: valid_attributes
+          post :create, medium: valid_attributes
         }.to change(Medium, :count).by(1)
       end
 
       it 'assigns a newly created medium as @medium' do
-        post :create, movie: valid_attributes
+        post :create, medium: valid_attributes
         expect(assigns(:medium)).to be_a(Medium)
         expect(assigns(:medium)).to be_persisted
       end
 
       it 'redirects to the created medium' do
-        post :create, movie: valid_attributes
+        post :create, medium: valid_attributes
         expect(response).to redirect_to(media_path)
       end
     end
 
     context 'with invalid params' do
       it 'assigns a newly created but unsaved medium as @medium' do
-        post :create, movie: invalid_attributes
+        post :create, medium: invalid_attributes
         expect(assigns(:medium)).to be_a_new(Medium)
       end
 
       it "re-renders the 'new' template" do
-        post :create, movie: invalid_attributes
+        post :create, medium: invalid_attributes
         expect(response).to render_template('new')
       end
     end
@@ -76,30 +76,30 @@ RSpec.describe MediaController, type: :controller do
       let(:new_attributes) { { title: 'new title' } }
 
       it 'updates the requested medium' do
-        put :update, id: medium.to_param, movie: new_attributes
+        put :update, id: medium.to_param, medium: new_attributes
         medium.reload
         expect(medium.title).to eq('new title')
       end
 
       it 'assigns the requested medium as @medium' do
-        put :update, id: medium.to_param, movie: valid_attributes
+        put :update, id: medium.to_param, medium: valid_attributes
         expect(assigns(:medium)).to eq(medium)
       end
 
       it 'redirects to the medium' do
-        put :update, id: medium.to_param, movie: valid_attributes
+        put :update, id: medium.to_param, medium: valid_attributes
         expect(response).to redirect_to(media_path)
       end
     end
 
     context 'with invalid params' do
       it 'assigns the medium as @medium' do
-        put :update, id: medium.to_param, movie: invalid_attributes
+        put :update, id: medium.to_param, medium: invalid_attributes
         expect(assigns(:medium)).to eq(medium)
       end
 
       it "re-renders the 'edit' template" do
-        put :update, id: medium.to_param, movie: invalid_attributes
+        put :update, id: medium.to_param, medium: invalid_attributes
         expect(response).to render_template('edit')
       end
     end
