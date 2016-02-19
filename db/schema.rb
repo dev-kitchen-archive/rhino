@@ -11,11 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216135152) do
+ActiveRecord::Schema.define(version: 20160219142448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+
+  create_table "books", force: :cascade do |t|
+    t.string   "title",       null: false
+    t.string   "author",      null: false
+    t.text     "description", null: false
+    t.string   "image_uid",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "media", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "type",          null: false
