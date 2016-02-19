@@ -11,8 +11,8 @@
   <% if signed_in? %>
     <nav>
       <div class="wrapper">
-        <%= link_to Medium.model_name.human, media_path %>
-        <%= link_to User.model_name.human, users_path %>
+        <%= link_to Medium.model_name.human(count: 2), media_path %>
+        <%= link_to User.model_name.human(count: 2), users_path %>
       </div>
     </nav>
   <% end %>

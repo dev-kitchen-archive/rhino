@@ -1,5 +1,13 @@
 ---
 en:
+  activerecord:
+    models:
+      user:
+        one: User
+        other: Users
+      medium:
+        one: Medium
+        other: Media
   media:
     form:
       general: General
