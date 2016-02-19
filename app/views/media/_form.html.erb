@@ -1,7 +1,7 @@
-<%= simple_form_for(@medium, url: media_path) do |f| %>
+<%= simple_form_for(@medium, url: (@medium.persisted? ? medium_path(@medium) : media_path)) do |f| %>
   <fieldset>
     <legend><%= t('.general') %></legend>
-    <%= f.input :type, collection: [Movie.model_name.human] %>
+    <%= f.input :type, collection: [Movie], include_blank: false %>
     <%= f.input :title %>
     <%= f.input :teaser %>
     <%= f.input :thumbnail, as: :file %>
