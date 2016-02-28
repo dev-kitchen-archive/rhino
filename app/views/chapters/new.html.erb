@@ -1,0 +1,5 @@
+<h1><%= t('shared.new', resource: Chapter.model_name.human ) %></h1>
+
+<%= render 'form' %>
+
+<%= link_to t('shared.back'), book_path(@book) %>

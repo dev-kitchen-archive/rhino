@@ -7,7 +7,53 @@ This is the backend for the interactive book app.
 
 ## API
 
-### GET /media/:uuid
+### GET /books.json
+
+Allows to list all the available books.
+
+#### Response
+
+```json
+[
+  {
+    "id": 1,
+    "title": "Tralala",
+    "author": "Someone",
+    "description": "Long text here",
+    "image_url": "/asset/W1siZiIsIjIwMTYvMDIvMjgvOHU2Z2pjbWF3Yl9zY3JlZW5jYXB0dXJlX3d0YWdfaW52b2ljZXJfZGV2X2Rvc3NpZXJzXzdfMTQ1MzIxNjc1MzI3My5wbmciXV0?sha=2c42f86d778c3bc4"
+  },
+  {
+    "id": 2,
+    "title": "Trololo",
+    "author": "Someone Else",
+    "description": "Another Long text here",
+    "image_url": "/asset/W1siZiIsIjIwMTYvMDIvMjgvOHU2Z2pjbWF3Yl9zY3JlZW5jYXB0dXJlX3d0YWdfaW52b2ljZXJfZGV2X2Rvc3NpZXJzXzdfMTQ1MzIxNjc1MzI3My5wbmciXV0?sha=2c42f86d778c3bc4"
+  },
+]
+```
+
+### GET /books/:id/chapters.json
+
+Allows to list all the chapters of a book.
+
+#### Response
+
+```json
+[
+  {
+    "id": 1,
+    "title": "The Beginning",
+    "number": 1
+  },
+  {
+    "id": 3,
+    "title": "The End",
+    "number": 2
+  }
+]
+```
+
+### GET /media/:uuid.json
 
 Allows to lookup the medium for an uuid.
 
@@ -16,6 +62,7 @@ Allows to lookup the medium for an uuid.
 ```json
 {
   "id": "150f626e-9e1c-4a5d-9722-f0fb1f6ebf6c",
+  "chapter_id": 1,
   "type": "movie",
   "title": "Star Wars 7",
   "teaser": "The force awakens",

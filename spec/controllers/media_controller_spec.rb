@@ -5,7 +5,7 @@ RSpec.describe MediaController, type: :controller do
     sign_in
   end
 
-  let(:valid_attributes) { FactoryGirl.attributes_for(:movie) }
+  let(:valid_attributes) { FactoryGirl.attributes_for(:movie, chapter_id: FactoryGirl.create(:chapter).id) }
   let(:invalid_attributes) { { title: nil } }
 
   let(:medium) { FactoryGirl.create(:movie) }
