@@ -1,0 +1,31 @@
+<table>
+  <thead>
+    <tr>
+      <th><%= Chapter.human_attribute_name :number %></th>
+      <th><%= Chapter.human_attribute_name :title %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% chapters.each do |chapter| %>
+      <tr>
+        <td><%= chapter.number %></td>
+        <td><%= chapter.title %></td>
+        <td class="actions">
+          <%= link_to t('shared.show'), chapter %>
+          <%= link_to t('shared.edit'), edit_chapter_path(chapter) %>
+          <%= link_to t('shared.destroy'), chapter, method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <td colspan="3">
+        <%= link_to t('shared.new', resource: Chapter.model_name.human), new_book_chapter_path(book) %>
+      </td>
+    </tr>
+  </tfoot>
+</table>

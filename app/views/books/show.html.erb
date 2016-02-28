@@ -7,5 +7,9 @@
 
 <%= @book.description %>
 
+
+<h2><%= Chapter.model_name.human count: 2 %></h2>
+<%= render 'chapters/collection', book: @book, chapters: @book.chapters %>
+
 <%= link_to t('shared.edit'), edit_book_path(@book) %> |
 <%= link_to t('shared.back'), books_path %>
