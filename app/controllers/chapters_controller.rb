@@ -1,6 +1,12 @@
 class ChaptersController < ApplicationController
   before_action :set_chapter, only: [:show, :edit, :update, :destroy]
-  before_action :set_book, only: [:new, :create]
+  before_action :set_book, only: [:index, :new, :create]
+
+  # GET /chapters
+  def index
+    @chapters = @book.chapters
+    render json: @chapters
+  end
 
   # GET /chapters/1
   def show

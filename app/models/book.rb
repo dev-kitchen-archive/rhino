@@ -7,4 +7,8 @@ class Book < ActiveRecord::Base
   validates :author, presence: true
   validates :description, presence: true
   validates :image, presence: true
+
+  def to_s
+    title
+  end
 end

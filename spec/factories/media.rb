@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :medium do
+    chapter
     title 'Cool Thing'
     teaser 'Cool Things are happening, check it out'
 

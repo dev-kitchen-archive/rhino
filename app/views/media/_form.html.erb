@@ -4,6 +4,7 @@
   <% unless @medium.class == Medium %>
     <fieldset>
       <legend><%= t('.general') %></legend>
+      <%= f.association :chapter, label_method: :to_s %>
       <%= f.input :title %>
       <%= f.input :teaser %>
       <%= f.input :thumbnail, as: :file %>

@@ -6,4 +6,8 @@ class Chapter < ActiveRecord::Base
   validates :book, presence: true
 
   default_scope -> { order('chapters.number ASC') }
+
+  def to_s
+    "#{book.to_s}: #{number}. #{title}"
+  end
 end

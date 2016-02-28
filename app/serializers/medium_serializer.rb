@@ -1,5 +1,5 @@
 class MediumSerializer < ActiveModel::Serializer
-  attributes :id, :type, :title, :teaser
+  attributes :id, :type, :title, :teaser, :chapter_id
   attributes :thumbnail_url
   attributes :data
 
