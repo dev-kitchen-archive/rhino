@@ -1,6 +1,8 @@
 class ChaptersController < ApplicationController
   before_action :set_chapter, only: [:show, :edit, :update, :destroy]
   before_action :set_book, only: [:index, :new, :create]
+  skip_before_action :require_login, only: :index
+  before_action :require_login, only: :index, unless: ->(controller) { controller.request.format.json? }
 
   # GET /chapters
   def index

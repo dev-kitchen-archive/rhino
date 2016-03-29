@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  skip_before_action :require_login, only: :index
+  before_action :require_login, only: :index, unless: ->(controller) { controller.request.format.json? }
 
   # GET /books
   def index
