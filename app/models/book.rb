@@ -5,6 +5,7 @@ class Book < ActiveRecord::Base
   dragonfly_accessor :image
 
   has_many :chapters
+  has_many :media, through: :chapters
 
   validates :title_de, :title_en, presence: true
   validates :author, presence: true
