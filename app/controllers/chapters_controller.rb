@@ -7,6 +7,11 @@ class ChaptersController < ApplicationController
   # GET /chapters
   def index
     @chapters = @book.chapters
+
+    if params[:changed_since]
+      @chapters = @chapters.where('chapters.updated_at >= ?', params[:changed_since])
+    end
+
     render json: @chapters
   end
 

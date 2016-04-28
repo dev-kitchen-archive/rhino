@@ -1,5 +1,5 @@
 class BookSerializer < ActiveModel::Serializer
-  attributes :id, :title, :author, :description
+  attributes :id, :title, :author, :description, :updated_at
   attributes :image_url
 
   def image_url

@@ -11,9 +11,20 @@ RSpec.describe BooksController, type: :controller do
   let(:book) { FactoryGirl.create(:book) }
 
   describe 'GET #index' do
-    it 'assigns all books as @books' do
-      get :index, locale: :en
-      expect(assigns(:books)).to eq([book])
+    let!(:book2) { FactoryGirl.create(:book, updated_at: 7.days.ago) }
+
+    context 'no changed_since given' do
+      it 'assigns all books as @books' do
+        get :index, locale: :en
+        expect(assigns(:books)).to match_array([book, book2])
+      end
+    end
+
+    context 'changed_since given' do
+      it 'assigns the changed books as @books' do
+        get :index, locale: :en, changed_since: 1.day.ago
+        expect(assigns(:books)).to eq([book])
+      end
     end
   end
 

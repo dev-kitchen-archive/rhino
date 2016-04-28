@@ -5,15 +5,49 @@ RSpec.describe MediaController, type: :controller do
     sign_in
   end
 
-  let(:valid_attributes) { FactoryGirl.attributes_for(:movie, chapter_id: FactoryGirl.create(:chapter).id) }
+  let(:chapter) { FactoryGirl.create(:chapter) }
+  let(:valid_attributes) { FactoryGirl.attributes_for(:movie, chapter_id: chapter.id) }
   let(:invalid_attributes) { { title_de: nil } }
 
   let(:medium) { FactoryGirl.create(:movie) }
 
   describe 'GET #index' do
-    it 'assigns all media as @media' do
-      get :index, locale: :en
-      expect(assigns(:media)).to eq([medium])
+    let(:book2) { FactoryGirl.create(:book) }
+    let!(:chapter2) { FactoryGirl.create(:chapter, book: book2) }
+    let!(:medium2) { FactoryGirl.create(:movie, chapter: chapter2) }
+
+    let!(:medium3) { FactoryGirl.create(:movie, chapter: chapter, updated_at: 7.days.ago) }
+
+    context 'no book given' do
+      context 'no changed_since given' do
+        it 'assigns all media as @media' do
+          get :index, locale: :en
+          expect(assigns(:media)).to match_array([medium, medium2, medium3])
+        end
+      end
+
+      context 'changed_since given' do
+        it 'assigns all changed media as @media' do
+          get :index, locale: :en, changed_since: 1.day.ago
+          expect(assigns(:media)).to match_array([medium, medium2])
+        end
+      end
+    end
+
+    context 'book given' do
+      context 'no changed_since given' do
+        it 'assigns all media of the book as @media' do
+          get :index, locale: :en, book_id: medium.chapter.book.id
+          expect(assigns(:media)).to eq([medium])
+        end
+      end
+
+      context 'changed_since given' do
+        it 'assigns all changed media as @media' do
+          get :index, locale: :en, book_id: medium.chapter.book.id, changed_since: 1.day.ago
+          expect(assigns(:media)).to match_array([medium])
+        end
+      end
     end
   end
 

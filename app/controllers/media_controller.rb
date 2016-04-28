@@ -1,10 +1,24 @@
 class MediaController < ApplicationController
   before_action :set_medium, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: %i(index)
   skip_before_action :require_login, only: :show
 
   # GET /media
   def index
-    @media = Medium.all
+    @media = if @book
+               @book.media
+             else
+               Medium.all
+             end
+
+    if params[:changed_since]
+      @media = @media.where('media.updated_at >= ?', params[:changed_since])
+    end
+
+    respond_to do |format|
+      format.html {}
+      format.json { render json: @media }
+    end
   end
 
   # GET /media/1
@@ -55,6 +69,10 @@ class MediaController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_medium
     @medium = Medium.find(params[:id])
+  end
+
+  def set_book
+    @book = Book.find(params[:book_id]) if params[:book_id]
   end
 
   # Only allow a trusted parameter "white list" through.
