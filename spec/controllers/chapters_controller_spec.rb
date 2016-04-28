@@ -6,7 +6,7 @@ RSpec.describe ChaptersController, type: :controller do
   end
 
   let(:valid_attributes) { FactoryGirl.attributes_for(:chapter) }
-  let(:invalid_attributes) { { title: nil } }
+  let(:invalid_attributes) { { title_de: nil } }
 
   let(:book) { FactoryGirl.create :book }
   let(:chapter) { FactoryGirl.create :chapter, book: book }
@@ -60,7 +60,7 @@ RSpec.describe ChaptersController, type: :controller do
 
   describe 'PUT #update' do
     context 'with valid params' do
-      let(:new_attributes) { { title: 'new title' } }
+      let(:new_attributes) { { title_en: 'new title' } }
 
       it 'updates the requested chapter' do
         put :update, id: chapter.to_param, chapter: new_attributes

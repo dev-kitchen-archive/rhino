@@ -9,6 +9,9 @@ class TwoMoviesAndText < Medium
 
   validates :movie1, presence: true
   validates :movie2, presence: true
-  validates :description1, presence: true
-  validates :description2, presence: true
+  validates :description1_de, :description1_en, presence: true
+  validates :description2_de, :description2_en, presence: true
+
+  translates :description1, :description2
+  globalize_accessors
 end

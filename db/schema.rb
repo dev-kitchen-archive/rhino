@@ -11,23 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228193225) do
+ActiveRecord::Schema.define(version: 20160428201311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
-  create_table "books", force: :cascade do |t|
-    t.string   "title",       null: false
-    t.string   "author",      null: false
-    t.text     "description", null: false
-    t.string   "image_uid",   null: false
+  create_table "book_translations", force: :cascade do |t|
+    t.integer  "book_id",     null: false
+    t.string   "locale",      null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "title"
+    t.text     "description"
   end
 
+  add_index "book_translations", ["book_id"], name: "index_book_translations_on_book_id", using: :btree
+  add_index "book_translations", ["locale"], name: "index_book_translations_on_locale", using: :btree
+
+  create_table "books", force: :cascade do |t|
+    t.string   "author",     null: false
+    t.string   "image_uid",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "chapter_translations", force: :cascade do |t|
+    t.integer  "chapter_id", null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "title"
+  end
+
+  add_index "chapter_translations", ["chapter_id"], name: "index_chapter_translations_on_chapter_id", using: :btree
+  add_index "chapter_translations", ["locale"], name: "index_chapter_translations_on_locale", using: :btree
+
   create_table "chapters", force: :cascade do |t|
-    t.string   "title",      null: false
     t.integer  "number",     null: false
     t.integer  "book_id",    null: false
     t.datetime "created_at", null: false
@@ -38,16 +58,30 @@ ActiveRecord::Schema.define(version: 20160228193225) do
 
   create_table "media", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "type",          null: false
-    t.string   "title",         null: false
-    t.string   "teaser",        null: false
     t.string   "thumbnail_uid", null: false
     t.json     "sti_store",     null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.text     "description1"
+    t.text     "description2"
     t.integer  "chapter_id",    null: false
   end
 
   add_index "media", ["chapter_id"], name: "index_media_on_chapter_id", using: :btree
+
+  create_table "medium_translations", force: :cascade do |t|
+    t.integer  "medium_id",    null: false
+    t.string   "locale",       null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "title"
+    t.string   "teaser"
+    t.text     "description1"
+    t.text     "description2"
+  end
+
+  add_index "medium_translations", ["locale"], name: "index_medium_translations_on_locale", using: :btree
+  add_index "medium_translations", ["medium_id"], name: "index_medium_translations_on_medium_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                     null: false

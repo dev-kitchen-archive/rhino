@@ -5,8 +5,10 @@
     <fieldset>
       <legend><%= t('.general') %></legend>
       <%= f.association :chapter, label_method: :to_s %>
-      <%= f.input :title %>
-      <%= f.input :teaser %>
+      <%= f.input :title_de %>
+      <%= f.input :title_en %>
+      <%= f.input :teaser_de %>
+      <%= f.input :teaser_en %>
       <%= f.input :thumbnail, as: :file %>
     </fieldset>
 

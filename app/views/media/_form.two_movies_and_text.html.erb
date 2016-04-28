@@ -1,7 +1,9 @@
 <fieldset id="two_movies_and_text">
   <legend><%= t('.details') %></legend>
-  <%= f.input :description1, as: :text %>
+  <%= f.input :description1_de, as: :text %>
+  <%= f.input :description1_en, as: :text %>
   <%= f.input :movie1, as: :file %>
-  <%= f.input :description2, as: :text %>
+  <%= f.input :description2_de, as: :text %>
+  <%= f.input :description2_en, as: :text %>
   <%= f.input :movie2, as: :file %>
 </fieldset>

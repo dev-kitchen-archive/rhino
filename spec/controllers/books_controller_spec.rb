@@ -6,7 +6,7 @@ RSpec.describe BooksController, type: :controller do
   end
 
   let(:valid_attributes) { FactoryGirl.attributes_for(:book) }
-  let(:invalid_attributes) { { title: nil } }
+  let(:invalid_attributes) { { title_de: nil } }
 
   let(:book) { FactoryGirl.create(:book) }
 
@@ -73,12 +73,12 @@ RSpec.describe BooksController, type: :controller do
 
   describe 'PUT #update' do
     context 'with valid params' do
-      let(:new_attributes) { { title: 'new title' } }
+      let(:new_attributes) { { title_de: 'new title' } }
 
       it 'updates the requested book' do
         put :update, id: book.to_param, book: new_attributes
         book.reload
-        expect(book.title).to eq('new title')
+        expect(book.title_de).to eq('new title')
       end
 
       it 'assigns the requested book as @book' do

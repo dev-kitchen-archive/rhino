@@ -1,6 +1,26 @@
 ---
 en:
   activerecord:
+    attributes:
+      book:
+        description_de: Description (German)
+        description_en: Description (English)
+        title_de: Title (German)
+        title_en: Title (English)
+      chapter:
+        title_de: Title (German)
+        title_en: Title (English)
+      medium:
+        description1_de: 1st Description (German)
+        description1_en: 1st Description (English)
+        description2_de: 2nd Description (German)
+        description2_en: 2nd Description (English)
+        movie1: 1st Movie
+        movie2: 2nd Movie
+        teaser_de: Teaser (German)
+        teaser_en: Teaser (English)
+        title_de: Title (German)
+        title_en: Title (English)
     models:
       medium:
         one: Medium

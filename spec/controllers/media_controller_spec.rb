@@ -6,7 +6,7 @@ RSpec.describe MediaController, type: :controller do
   end
 
   let(:valid_attributes) { FactoryGirl.attributes_for(:movie, chapter_id: FactoryGirl.create(:chapter).id) }
-  let(:invalid_attributes) { { title: nil } }
+  let(:invalid_attributes) { { title_de: nil } }
 
   let(:medium) { FactoryGirl.create(:movie) }
 
@@ -73,7 +73,7 @@ RSpec.describe MediaController, type: :controller do
 
   describe 'PUT #update' do
     context 'with valid params' do
-      let(:new_attributes) { { title: 'new title' } }
+      let(:new_attributes) { { title_en: 'new title' } }
 
       it 'updates the requested medium' do
         put :update, id: medium.to_param, medium: new_attributes
