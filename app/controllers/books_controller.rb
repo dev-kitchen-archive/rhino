@@ -6,6 +6,11 @@ class BooksController < ApplicationController
   # GET /books
   def index
     @books = Book.all
+
+    if params[:changed_since]
+      @books = @books.where('updated_at >= ?', params[:changed_since])
+    end
+
     respond_to do |format|
       format.html {}
       format.json { render json: @books }

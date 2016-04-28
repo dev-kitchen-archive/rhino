@@ -9,7 +9,26 @@ RSpec.describe ChaptersController, type: :controller do
   let(:invalid_attributes) { { title_de: nil } }
 
   let(:book) { FactoryGirl.create :book }
-  let(:chapter) { FactoryGirl.create :chapter, book: book }
+  let(:chapter) { FactoryGirl.create :chapter, title: 1, book: book }
+
+  describe 'GET #index' do
+    let!(:chapter) { FactoryGirl.create :chapter, title: 1, book: book }
+    let!(:chapter2) { FactoryGirl.create(:chapter, title: 2, book: book, updated_at: 7.days.ago) }
+
+    context 'no changed_since given' do
+      it 'assigns all chapters as @chapters' do
+        get :index, locale: :en, book_id: book.id
+        expect(assigns(:chapters)).to match_array([chapter, chapter2])
+      end
+    end
+
+    context 'changed_since given' do
+      it 'assigns the changed chapters as @chapters' do
+        get :index, locale: :en, book_id: book.id, changed_since: 1.day.ago
+        expect(assigns(:chapters)).to eq([chapter])
+      end
+    end
+  end
 
   describe 'GET #new' do
     it 'assigns a new chapter as @chapter' do
