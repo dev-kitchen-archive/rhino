@@ -61,6 +61,6 @@ class ChaptersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def chapter_params
-      params.require(:chapter).permit(:title, :number, :book_id)
+      params.require(:chapter).permit(:title_de, :title_en, :number, :book_id)
     end
 end

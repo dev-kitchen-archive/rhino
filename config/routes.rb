@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :books do
-    resources :chapters, except: %i(show), shallow: true
+  scope '/:locale', locale: /en|de/ do
+    resources :books do
+      resources :chapters, except: %i(show), shallow: true
+    end
+    resources :users, except: %i(show)
+    resources :media
   end
-  resources :users, except: %i(show)
-  resources :media
-  root 'media#index'
+  root 'media#index', locale: 'en'
 end

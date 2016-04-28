@@ -62,14 +62,18 @@ class MediaController < ApplicationController
     params.require(:medium).permit(
       :chapter_id,
       :type,
-      :title,
-      :teaser,
+      :title_de,
+      :title_en,
+      :teaser_de,
+      :teaser_en,
       :thumbnail,
       :file,
       :movie1,
       :movie2,
-      :description1,
-      :description2,
+      :description1_de,
+      :description1_en,
+      :description2_de,
+      :description2_en,
     )
   end
 
