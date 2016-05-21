@@ -1,0 +1,23 @@
+<h1><%= NewsletterSubscription.model_name.human count: 2 %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= NewsletterSubscription.human_attribute_name(:name) %></th>
+      <th><%= NewsletterSubscription.human_attribute_name(:email) %></th>
+      <th><%= NewsletterSubscription.human_attribute_name(:source) %></th>
+      <th><%= NewsletterSubscription.human_attribute_name(:language) %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @newsletter_subscriptions.each do |newsletter_subscription| %>
+      <tr>
+        <td><%= newsletter_subscription.name %></td>
+        <td><%= newsletter_subscription.email %></td>
+        <td><%= newsletter_subscription.source %></td>
+        <td><%= newsletter_subscription.language %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
