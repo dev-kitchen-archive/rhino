@@ -12,6 +12,9 @@ class TwoMoviesAndText < Medium
   validates :description1_de, :description1_en, presence: true
   validates :description2_de, :description2_en, presence: true
 
+  validates_property :format, of: :movie1, in: Medium::VIDEO_FORMATS
+  validates_property :format, of: :movie2, in: Medium::VIDEO_FORMATS
+
   translates :description1, :description2
   globalize_accessors
 end
