@@ -1,15 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe MediaController, type: :controller do
+  let(:chapter) { FactoryGirl.create(:chapter) }
+  let(:valid_attributes) do
+    attributes = FactoryGirl.attributes_for(:movie, chapter_id: chapter.id)
+    attributes[:file] = fixture_file_upload(attributes[:file], 'video/mp4')
+    attributes[:thumbnail] = fixture_file_upload(attributes[:thumbnail], 'image/png')
+    attributes
+  end
+  let(:invalid_attributes) { { title_de: nil } }
+  let(:medium) { FactoryGirl.create(:movie) }
+
   before do
     sign_in
   end
-
-  let(:chapter) { FactoryGirl.create(:chapter) }
-  let(:valid_attributes) { FactoryGirl.attributes_for(:movie, chapter_id: chapter.id) }
-  let(:invalid_attributes) { { title_de: nil } }
-
-  let(:medium) { FactoryGirl.create(:movie) }
 
   describe 'GET #index' do
     let(:book2) { FactoryGirl.create(:book) }

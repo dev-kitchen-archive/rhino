@@ -4,5 +4,5 @@ class Movie < Medium
 
   validates :file, presence: true
 
-  validates_property :format, of: :file, in: Medium::VIDEO_FORMATS
+  validates_property :mime_type, of: :file, in: Medium::VIDEO_FORMATS
 end

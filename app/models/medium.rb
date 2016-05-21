@@ -1,6 +1,6 @@
 class Medium < ActiveRecord::Base
-  VIDEO_FORMATS = %w(mp4).freeze
-  IMAGE_FORMATS = %w(jpeg png).freeze
+  VIDEO_FORMATS = %w(video/mp4).freeze
+  IMAGE_FORMATS = %w(image/jpeg image/png).freeze
 
   dragonfly_accessor :thumbnail
 
@@ -12,7 +12,7 @@ class Medium < ActiveRecord::Base
   validates :thumbnail, presence: true
   validates :chapter, presence: true
 
-  validates_property :format, of: :thumbnail, in: Medium::IMAGE_FORMATS
+  validates_property :mime_type, of: :thumbnail, in: Medium::IMAGE_FORMATS
 
   translates :title, :teaser
   globalize_accessors
