@@ -121,3 +121,38 @@ be returned.
   }
 ]
 ```
+
+### POST /:locale/newsletter_subscriptions
+
+Create a new newsletter subscription.
+
+#### Request
+
+```json
+{
+  "name": "John Doe",
+  "email": "john@example.org",
+  "source": "ios"
+}
+```
+
+The language given in the URL will be used to assign the `language` attribute. Allowed values of `source` are
+`ios` and `android`.
+
+#### Response
+
+##### Success
+
+There won't be any content returned, HTTP status will be `204 No Content`.
+
+##### Error
+
+If a validation fails, HTTP status `422` will be returned. Content would be for example:
+
+```json
+{
+  "name": [ "can't be blank"],
+  "email": [ "can't be blank", "is invalid" ],
+  "source": [ "can't be blank", "is not included in the list" ]
+}
+```
