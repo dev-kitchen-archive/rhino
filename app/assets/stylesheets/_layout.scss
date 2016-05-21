@@ -7,3 +7,11 @@ body {
   max-width: 56em;
   margin: auto;
 }
+
+.one-line {
+  @include display(flex);
+
+  > div {
+    @include flex(1);
+  }
+}

@@ -1,5 +1,7 @@
 <%= simple_form_for(@medium, as: :medium, url: (@medium.persisted? ? medium_path(@medium) : media_path)) do |f| %>
-  <%= f.input :type, collection: [Movie, TwoMoviesAndText] %>
+  <% unless @medium.persisted? %>
+    <%= f.input :type, collection: [Movie, TwoMoviesAndText] %>
+  <% end %>
 
   <% unless @medium.class == Medium %>
     <fieldset>
@@ -9,7 +11,14 @@
       <%= f.input :title_en %>
       <%= f.input :teaser_de %>
       <%= f.input :teaser_en %>
-      <%= f.input :thumbnail, as: :file %>
+      <div class="one-line">
+        <div>
+          <%= f.input :thumbnail, as: :file %>
+        </div>
+        <div>
+          <%= image_tag @medium.thumbnail.thumb('400x200#').url if @medium.thumbnail_stored? %>
+        </div>
+      </div>
     </fieldset>
 
     <%= render "form.#{@medium.class.to_s.underscore}", f: f %>
