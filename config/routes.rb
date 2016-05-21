@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     end
     resources :users, except: %i(show)
     resources :media
+    resources :newsletter_subscriptions, only: %i(create index)
   end
   root 'media#index', locale: 'en'
 end

@@ -21,10 +21,18 @@ en:
         teaser_en: Teaser (English)
         title_de: Title (German)
         title_en: Title (English)
+      newsletter_subscription:
+        name: Name
+        email: Email
+        source: Source
+        language: Language
     models:
       medium:
         one: Medium
         other: Media
+      newsletter_subscription:
+        one: Newsletter Subscription
+        other: Newsletter Subscriptions
       user:
         one: User
         other: Users
