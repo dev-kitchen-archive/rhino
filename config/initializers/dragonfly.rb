@@ -8,14 +8,18 @@ Dragonfly.app.configure do
 
   url_format '/asset/:job/:name'
 
-  datastore(
-    :s3,
-    bucket_name: ENV['S3_BUCKET'],
-    access_key_id: ENV['S3_ACCESS_KEY_ID'],
-    secret_access_key: ENV['S3_SECRET_ACCESS_KEY'],
-    url_scheme: 'https',
-    root_path: Rails.env
-  )
+  if Rails.env.test?
+    datastore :file,
+      root_path: Rails.root.join('public/system'),
+      server_root: Rails.root.join('public')
+  else
+    datastore :s3,
+      bucket_name: ENV['S3_BUCKET'],
+      access_key_id: ENV['S3_ACCESS_KEY_ID'],
+      secret_access_key: ENV['S3_SECRET_ACCESS_KEY'],
+      url_scheme: 'https',
+      root_path: Rails.env
+  end
 end
 
 # Logger

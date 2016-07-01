@@ -3,6 +3,6 @@ class BookSerializer < ActiveModel::Serializer
   attributes :image_url
 
   def image_url
-    object.image.url
+    object.image.remote_url
   end
 end

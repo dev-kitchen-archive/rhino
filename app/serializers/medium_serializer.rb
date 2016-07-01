@@ -5,7 +5,7 @@ class MediumSerializer < ActiveModel::Serializer
   attributes :updated_at
 
   def thumbnail_url
-    object.thumbnail.url
+    object.thumbnail.remote_url
   end
 
   def type

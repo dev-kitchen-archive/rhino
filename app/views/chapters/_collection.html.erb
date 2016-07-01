@@ -13,7 +13,6 @@
         <td><%= chapter.number %></td>
         <td><%= chapter.title %></td>
         <td class="actions">
-          <%= link_to t('shared.show'), chapter %>
           <%= link_to t('shared.edit'), edit_chapter_path(chapter) %>
           <%= link_to t('shared.destroy'), chapter, method: :delete %>
         </td>

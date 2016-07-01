@@ -14,7 +14,6 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'puma'
 gem 'rails'
-gem 'rails_12factor'
 gem 'rollbar'
 gem 'sass-rails'
 gem 'simple_form'
@@ -22,9 +21,14 @@ gem 'skylight'
 gem 'therubyracer'
 gem 'uglifier'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'byebug'
   gem 'factory_girl_rails'
+  gem 'dotenv-rails'
 end
 
 group :development do
