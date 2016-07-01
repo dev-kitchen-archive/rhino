@@ -13,3 +13,4 @@
 /tmp
 /spec/examples.txt
 public/system
+.env
