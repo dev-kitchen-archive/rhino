@@ -4,13 +4,18 @@ require 'dragonfly'
 Dragonfly.app.configure do
   plugin :imagemagick
 
-  secret "9207f5f23cb56edf0f136175c36ccf171b4ec8894f97b789c8532ec5fa86973b"
+  secret ENV['DRAGONFLY_SECRET_KEY']
 
-  url_format "/asset/:job/:name"
+  url_format '/asset/:job/:name'
 
-  datastore :file,
-    root_path: Rails.root.join('public/system'),
-    server_root: Rails.root.join('public')
+  datastore(
+    :s3,
+    bucket_name: ENV['S3_BUCKET'],
+    access_key_id: ENV['S3_ACCESS_KEY_ID'],
+    secret_access_key: ENV['S3_SECRET_ACCESS_KEY'],
+    url_scheme: 'https',
+    root_path: Rails.env
+  )
 end
 
 # Logger
