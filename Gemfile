@@ -18,6 +18,7 @@ gem 'rails_12factor'
 gem 'rollbar'
 gem 'sass-rails'
 gem 'simple_form'
+gem 'skylight'
 gem 'therubyracer'
 gem 'uglifier'
 
