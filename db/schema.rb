@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521194052) do
+ActiveRecord::Schema.define(version: 20160712205233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 20160521194052) do
   add_index "media", ["chapter_id"], name: "index_media_on_chapter_id", using: :btree
 
   create_table "medium_translations", force: :cascade do |t|
-    t.integer  "medium_id",    null: false
     t.string   "locale",       null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -78,6 +77,7 @@ ActiveRecord::Schema.define(version: 20160521194052) do
     t.string   "teaser"
     t.text     "description1"
     t.text     "description2"
+    t.uuid     "medium_id",    null: false
   end
 
   add_index "medium_translations", ["locale"], name: "index_medium_translations_on_locale", using: :btree
