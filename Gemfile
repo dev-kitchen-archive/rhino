@@ -32,11 +32,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'capistrano'
-  gem 'capistrano-rails'
-  gem 'capistrano-rails-console'
-  gem 'capistrano-rails-tail-log'
-  gem 'capistrano-rbenv'
   gem 'foreman'
   gem 'i18n-tasks'
   gem 'rspec'
