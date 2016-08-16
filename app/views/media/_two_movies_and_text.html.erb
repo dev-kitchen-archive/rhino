@@ -1,4 +1,9 @@
-<p><%= @medium.description1 %></p>
-<%= link_to TwoMoviesAndText.human_attribute_name(:movie1), @medium.movie1.remote_url %>
-<p><%= @medium.description2 %></p>
-<%= link_to TwoMoviesAndText.human_attribute_name(:movie2), @medium.movie2.remote_url %>
+<video width="100%" height="auto" controls autoplay poster="<%= @medium.thumbnail.remote_url %>">
+  <source src="<%= @medium.movie1.remote_url %>" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<video width="100%" height="auto" controls autoplay poster="<%= @medium.thumbnail.remote_url %>">
+  <source src="<%= @medium.movie2.remote_url %>" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
