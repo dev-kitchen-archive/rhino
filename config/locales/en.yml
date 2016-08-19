@@ -45,7 +45,6 @@ en:
     created: "%{resource} was successfully created."
     destroy: Destroy
     destroyed: "%{resource} was successfully destroyed."
-    download: Download
     edit: Edit
     new: New %{resource}
     show: Show

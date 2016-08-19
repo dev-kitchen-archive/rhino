@@ -1,19 +1,88 @@
-<h1>
-  <%= @medium.title %>
-  <small><%= @medium.type %></small>
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Esther - Mit Gott die Welt auf den Kopf stellen</title>
 
-<p><%= @medium.teaser %></p>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag 'media_show/bootstrap.min', media: 'all' %>
+    <%= stylesheet_link_tag 'media_show/layout', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
 
-<div class="details">
-  <div>
-    <%= image_tag @medium.thumbnail.remote_url %>
-  </div>
+    <!-- Custom Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-  <div>
-    <%= render @medium.class.to_s.underscore %>
-  </div>
-</div>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  </head>
+  <body>
 
-<%= link_to t('shared.edit'), edit_medium_path(@medium) %> |
-<%= link_to t('shared.back'), media_path %>
+    <% if signed_in? %>
+
+      <nav>
+        <div class="wrapper">
+          <%= link_to Book.model_name.human(count: 2), books_path %>
+          <%= link_to Medium.model_name.human(count: 2), media_path %>
+          <%= link_to User.model_name.human(count: 2), users_path %>
+          <%= link_to NewsletterSubscription.model_name.human(count: 2), newsletter_subscriptions_path %>
+        </div>
+      </nav>
+
+      <section id="tools">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+
+              <%= link_to t('shared.edit'), edit_medium_path(@medium) %> |
+              <%= link_to t('shared.back'), media_path %>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    <% end %>
+
+    <header id="top" class="header">
+      <div class="text-vertical-center">
+        <%= image_tag 'esther.png' %>
+      </div>
+    </header>
+
+    <section id="about" class="about">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h1><%= @medium.title %></h1>
+            <p class="lead"></p>
+
+            <%= render @medium.class.to_s.underscore %>
+          </div>
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 col-lg-offset-1 text-center">
+            <hr class="small">
+            <p class="text-copy">&copy; 2016 <a href="https://www.icf.church/">ICF Church</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+
+</html>

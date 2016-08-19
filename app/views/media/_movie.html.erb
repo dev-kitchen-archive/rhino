@@ -1,1 +1,5 @@
-<%= link_to t('shared.download'), @medium.file.remote_url %>
+<video width="100%" height="auto" controls autoplay poster="<%= @medium.thumbnail.remote_url %>">
+  <source src="<%= @medium.file.remote_url %>" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
